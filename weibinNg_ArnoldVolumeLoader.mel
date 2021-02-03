@@ -1,0 +1,29 @@
+//this mel script was made by Wei Bin Ng on 2nd February 2021
+// visit my website for more cool stuffs! https://ngweibin.wixsite.com/portfolio
+string $cFilepath = `file -q -exn`;
+string $cFilepathArray[];
+string $cProjFilepathArray[];
+$cFilepathArray = stringToStringArray($cFilepath, "/");
+//print($cFilepathArray);
+
+int $cProjPArrayIndex = size($cFilepathArray) - 2;
+
+appendStringArray($cProjFilepathArray, $cFilepathArray, $cProjPArrayIndex);
+
+
+$cProjPath = stringArrayToString($cProjFilepathArray, "/");
+
+string $relFilecache = "//cache/vdb/sc01_sh01_smoke.####.vdb";
+int $i = 0;
+if($i==0)
+{
+    string $abscachePath = $cProjPath + $relFilecache;
+}
+$i++;
+//print($cProjPath)
+//print($cFilepath)
+setAttr -type "string" aiVolume.filename "";
+setAttr -type "string" aiVolume.filename $abscachePath;
+
+setAttr "aiVolumeShape.useFrameExtension" 0;
+setAttr "aiVolumeShape.useFrameExtension" 1;
