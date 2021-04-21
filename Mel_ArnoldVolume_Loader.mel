@@ -13,8 +13,9 @@ appendStringArray($cProjFilepathArray, $cFilepathArray, $cProjPArrayIndex);
 
 $cProjPath = stringArrayToString($cProjFilepathArray, "/");
 
-string $relFilecache = "//cache/vdb/sc02_sh01_02_03/smokeRelease.###.vdb";
+string $relFilecache = "//cache/vdb/sc02_sh04/smokeRelease.###.vdb";
 
+string $abscachePath="";
 string $abscachePath = $cProjPath + $relFilecache;
 
 
@@ -23,5 +24,16 @@ string $abscachePath = $cProjPath + $relFilecache;
 setAttr -type "string" aiVolume.filename "";
 setAttr -type "string" aiVolume.filename $abscachePath;
 
+
 setAttr "aiVolumeShape.useFrameExtension" 0;
 setAttr "aiVolumeShape.useFrameExtension" 1;
+
+string $relFilecache = "//cache/vdb/sc02_sh04/flames_v001.###.vdb";
+string $abscachePath="";
+
+string $abscachePath = $cProjPath + $relFilecache;
+
+setAttr -type "string" aiVolume1.filename "";
+setAttr -type "string" aiVolume1.filename $abscachePath;
+setAttr "aiVolume1Shape.useFrameExtension" 0;
+setAttr "aiVolume1Shape.useFrameExtension" 1;
